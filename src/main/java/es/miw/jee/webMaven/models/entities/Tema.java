@@ -18,7 +18,7 @@ public class Tema {
 	private String pregunta;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	private List<Voto> votos;
+	private List<Voto> votos; 
 	
 	public Tema(){
 		
