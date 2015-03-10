@@ -1,11 +1,25 @@
 package es.miw.jee.webMaven.models.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 import es.miw.jee.webMaven.models.utils.Estudios;
 
-public class VotoEntity {
+@Entity
+public class Voto {
+	
+	@Id
+    @GeneratedValue
+	private int id;
+	
 	private int idTema, valoracion;
 	private Estudios nivelEstudios;
 	private String ip;
+	
+	public Voto(){
+		
+	}
 	
 	public int getValoracion() {
 		return valoracion;
