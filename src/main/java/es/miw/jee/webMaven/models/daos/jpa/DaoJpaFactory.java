@@ -10,6 +10,8 @@ import org.apache.logging.log4j.LogManager;
 import org.eclipse.persistence.config.PersistenceUnitProperties;
 
 import es.miw.jee.webMaven.models.daos.DaoFactory;
+import es.miw.jee.webMaven.models.daos.TemaDao;
+import es.miw.jee.webMaven.models.daos.VotoDao;
 
 public class DaoJpaFactory extends DaoFactory {
     private static final String PERSISTENCE_UNIT = "MIWJEE";
