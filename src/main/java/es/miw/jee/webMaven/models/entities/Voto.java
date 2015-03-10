@@ -13,7 +13,7 @@ public class Voto {
     @GeneratedValue
 	private int id;
 	
-	private int idTema, valoracion;
+	private int valoracion;
 	private Estudios nivelEstudios;
 	private String ip;
 	
@@ -27,14 +27,14 @@ public class Voto {
 	public void setValoracion(int valoracion) {
 		this.valoracion = valoracion;
 	}
-	
+/*	
 	public int getIdTema() {
 		return idTema;
 	}
 	public void setIdTema(int idTema) {
 		this.idTema = idTema;
 	}
-	
+*/	
 	public Estudios getNivelEstudios() {
 		return nivelEstudios;
 	}
