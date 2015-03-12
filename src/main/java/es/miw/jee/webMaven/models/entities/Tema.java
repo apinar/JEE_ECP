@@ -11,6 +11,9 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Tema {
+	
+	public static final String TABLE = "tema";
+	
 	@Id
     @GeneratedValue
 	private int id;

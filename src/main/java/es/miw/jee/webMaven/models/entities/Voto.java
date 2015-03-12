@@ -9,6 +9,8 @@ import es.miw.jee.webMaven.models.utils.Estudios;
 @Entity
 public class Voto {
 	
+	public static final String TABLE = "voto";
+	
 	@Id
     @GeneratedValue
 	private int id;
