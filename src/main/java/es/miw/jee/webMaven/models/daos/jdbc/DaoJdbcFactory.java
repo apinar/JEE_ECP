@@ -28,7 +28,7 @@ public class DaoJdbcFactory extends DaoFactory {
 
     private static Connection connection;
 
-    public static Connection getConnection() {
+    public static Connection getConnection() { 
         try {
             if (connection == null || !connection.isValid(0)) {
                 Class.forName(DRIVER);
