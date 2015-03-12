@@ -38,7 +38,7 @@ public class DaoJpaFactory extends DaoFactory {
     }
 
     @Override
-    public TemaDao getTemaDao() {
+    public TemaDao getTemaDao() { 
         return new TemaDaoJpa();
     }
 
