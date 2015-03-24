@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 public class Dispatcher extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private static String PATH_ROOT_VIEW = "/personaViewsV1/";
+	private static String PATH_ROOT_VIEW = "/jsp/";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -38,7 +38,7 @@ public class Dispatcher extends HttpServlet {
                 .forward(request, response);
     }
 	
-    
+    /*
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -59,5 +59,5 @@ public class Dispatcher extends HttpServlet {
                 .forward(request, response);
     }
     
-	
+	*/
 }
