@@ -2,6 +2,7 @@ package es.miw.jee.webMaven.models.daos.jdbc;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -65,14 +66,20 @@ public class VotoDaoJdbc extends GenericDaoJdbc<Voto, Integer> implements VotoDa
 
 	@Override
 	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
+		this.updateSql(String.format(SQL_DELETE_ID, Voto.TABLE, id));
 		
 	}
 
 	@Override
 	public List<Voto> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Voto> list = new ArrayList<Voto>();
+        ResultSet resultSet = this.query(String.format(SQL_SELECT_ALL, Voto.TABLE));
+        Voto category = this.create(resultSet);
+        while (category != null) {
+            list.add(category);
+            category = this.create(resultSet);
+        }
+        return list;
 	}
 
 }
