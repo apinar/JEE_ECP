@@ -1,5 +1,9 @@
 package es.miw.jee.webMaven.controllers;
 
-public class IncorporarTemaController {
+import es.miw.jee.webMaven.models.entities.Tema;
+
+public interface IncorporarTemaController {
+	
+	void incorporarTema(Tema tema);
 
 }
