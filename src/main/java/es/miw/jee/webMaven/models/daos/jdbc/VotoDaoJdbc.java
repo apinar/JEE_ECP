@@ -58,7 +58,8 @@ public class VotoDaoJdbc extends GenericDaoJdbc<Voto, Integer> implements VotoDa
 
 	@Override
 	public void update(Voto entity) {
-		// TODO Auto-generated method stub
+		this.updateSql(String.format(SQL_UPDATE, Voto.TABLE, Voto.IP, entity.getIp(),
+                Voto.NIVELESTUDIOS, entity.getNivelEstudios(), Voto.VALORACION, entity.getValoracion()));
 		
 	}
 
