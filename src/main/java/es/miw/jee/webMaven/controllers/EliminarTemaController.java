@@ -1,5 +1,10 @@
 package es.miw.jee.webMaven.controllers;
 
-public class EliminarTemaController {
+import es.miw.jee.webMaven.models.entities.Tema;
+
+public interface EliminarTemaController {
+	
+	void eliminarTema(Tema tema);
+	boolean comprobarAutorizacion(String id);
 
 }
