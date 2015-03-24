@@ -31,6 +31,12 @@ public class Voto {
 		
 	}
 	
+	public Voto(int valoracion, Estudios nivelEstudios, String ip) {
+		this.valoracion = valoracion;
+		this.nivelEstudios = nivelEstudios;
+		this.ip = ip;
+	}
+
 	public int getValoracion() {
 		return valoracion;
 	}

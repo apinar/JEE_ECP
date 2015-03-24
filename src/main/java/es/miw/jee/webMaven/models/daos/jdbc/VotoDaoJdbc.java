@@ -1,12 +1,35 @@
 package es.miw.jee.webMaven.models.daos.jdbc;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import es.miw.jee.webMaven.models.daos.VotoDao;
 import es.miw.jee.webMaven.models.entities.Voto;
+import es.miw.jee.webMaven.models.utils.Estudios;
 
 public class VotoDaoJdbc extends GenericDaoJdbc<Voto, Integer> implements VotoDao{
 
+	 private Logger log = LogManager.getLogger(VotoDaoJdbc.class);
+
+	    private Voto create(ResultSet resultSet) {
+	        try {
+	            if (resultSet != null && resultSet.next()) {
+	                return new Voto(resultSet.getInt(Voto.VALORACION),
+	                		Estudios.values()[resultSet.getInt(Voto.NIVELESTUDIOS)],
+	                        resultSet.getString(Voto.IP)
+	                        );
+	            }
+	        } catch (SQLException e) {
+	            log.error("read: " + e.getMessage());
+	        }
+	        return null;
+	    }
+
+	
 	
 	private static final String SQL_CREATE_TABLE = "CREATE TABLE %s (%s INT NOT NULL, %s VARCHAR(255), "
             + "%s INT, %s INT, PRIMARY KEY (%s))";
@@ -29,8 +52,8 @@ public class VotoDaoJdbc extends GenericDaoJdbc<Voto, Integer> implements VotoDa
 
 	@Override
 	public Voto read(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		ResultSet resultSet = this.query(String.format(SQL_SELECT_ID, Voto.TABLE, id));
+        return this.create(resultSet);
 	}
 
 	@Override
