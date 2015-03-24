@@ -10,6 +10,14 @@ import es.miw.jee.webMaven.models.utils.Estudios;
 public class Voto {
 	
 	public static final String TABLE = "voto";
+
+	public static final String ID = "ID";
+
+	public static final String NIVELESTUDIOS = "NIVELESTUDIOS";
+
+	public static final String IP = "IP";
+
+	public static final String VALORACION = "VALORACION";
 	
 	@Id
     @GeneratedValue
