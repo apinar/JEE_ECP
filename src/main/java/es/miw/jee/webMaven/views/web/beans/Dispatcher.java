@@ -24,12 +24,21 @@ public class Dispatcher extends HttpServlet {
 
         String view;
         switch (action) {
-        case "persona":
-            
+        case "votar":
+        	VotarView votarView = new VotarView();
         	view = action;
             break;
-        case "rol":
+        case "ver":
+        	VerView verView = new VerView();
         	view = action;
+        	break;
+        case "incorporar":
+        	IncorporarView incorporarView = new IncorporarView();
+        	view = action;
+        	break;
+        case "eliminar":
+        	EliminarView eliminarView = new EliminarView();
+        	view = action;	       	
         default:
             view = "home";
         }
