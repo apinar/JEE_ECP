@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import es.miw.jee.webMaven.controllers.ControllerFactory;
+import es.miw.jee.webMaven.controllers.ejbs.ControllerEjbFactory;
+
 
 
 @WebServlet("/jsp/*")
@@ -15,12 +18,20 @@ public class Dispatcher extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private static String PATH_ROOT_VIEW = "/jsp/";
+	
+	private ControllerFactory controllerFactory;
+
+    @Override
+    public void init() {
+        controllerFactory = new ControllerEjbFactory();
+    }
+	
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String action = request.getPathInfo().substring(1);
+        String action = request.getPathInfo().substring(1); 
 
         String view;
         switch (action) {

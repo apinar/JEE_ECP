@@ -3,26 +3,28 @@ package es.miw.jee.webMaven.controllers.ejbs;
 import java.util.List;
 
 import es.miw.jee.webMaven.controllers.VotarController;
+import es.miw.jee.webMaven.models.daos.TemaDao;
+import es.miw.jee.webMaven.models.daos.jpa.DaoJpaFactory;
 import es.miw.jee.webMaven.models.entities.Tema;
 
 public class VotarControllerEjb implements VotarController {
 
 	@Override
 	public List<Tema> listarTemas() {
-		// TODO Auto-generated method stub
-		return null;
+		TemaDao temaDaoJpa = new DaoJpaFactory().getTemaDao();
+		return temaDaoJpa.findAll();
 	}
 
 	@Override
 	public Tema elegirTema(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		TemaDao temaDaoJpa = new DaoJpaFactory().getTemaDao();
+		return temaDaoJpa.read(id);
 	}
 
 	@Override
 	public void votar(Integer id) {
-		// TODO Auto-generated method stub
-
+		TemaDao  temaDao = new DaoJpaFactory().getTemaDao();
+		temaDao.update(elegirTema(id));
 	}
 
 }
