@@ -58,26 +58,37 @@ public class Dispatcher extends HttpServlet {
                 .forward(request, response);
     }
 	
-    /*
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getPathInfo().substring(1);
         String view = "home";
         switch (action) {
-        case "persona":
-
-            view = personaView.process();
+        case "votar":
+        	VotarView votarView = new VotarView();
+        	
+            view = action;
             break;
-        case "rol":
-
-            view = rolView.process();
+        case "ver":
+        	VerView verView = new VerView();
+        	
+            view = action;
             break;
+        case "incorporar":
+        	IncorporarView incorporarView = new IncorporarView();
+            view = action;
+            break;
+        case "eliminar":
+        	EliminarView eliminarView = new EliminarView();
+            view = action;
+            break;    
+            
         }
 
         this.getServletContext().getRequestDispatcher(PATH_ROOT_VIEW + view + ".jsp")
                 .forward(request, response);
     }
     
-	*/
+	
 }
