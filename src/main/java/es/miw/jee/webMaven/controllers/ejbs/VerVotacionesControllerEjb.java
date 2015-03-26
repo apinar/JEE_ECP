@@ -19,4 +19,6 @@ public class VerVotacionesControllerEjb implements VerVotacionesController {
 		return null;
 	}
 
+	//Falta votacion media
+	
 }
