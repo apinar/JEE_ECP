@@ -66,21 +66,21 @@ public class Dispatcher extends HttpServlet {
         String view = "home";
         switch (action) {
         case "votar":
-        	VotarViewBean votarView = new VotarViewBean();
+        	VotarViewBean votar = new VotarViewBean();
         	
             view = action;
             break;
         case "ver":
-        	VerViewBean verView = new VerViewBean();
+        	VerViewBean verVotaciones = new VerViewBean();
         	
             view = action;
             break;
         case "incorporar":
-        	IncorporarViewBean incorporarView = new IncorporarViewBean();
+        	IncorporarViewBean incorporarTema = new IncorporarViewBean();
             view = action;
             break;
         case "eliminar":
-        	EliminarViewBean eliminarView = new EliminarViewBean();
+        	EliminarViewBean eliminarTema = new EliminarViewBean();
             view = action;
             break;    
             
