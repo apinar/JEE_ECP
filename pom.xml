@@ -44,7 +44,6 @@
 		</dependency>	
 	</dependencies>
   <build>
-    <finalName>WebMaven</finalName>
     <sourceDirectory>src/main/webapp</sourceDirectory>
     <resources>
       <resource>

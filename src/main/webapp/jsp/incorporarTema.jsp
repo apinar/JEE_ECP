@@ -10,19 +10,21 @@
 <body>
 <c:set var="nuevoTema" scope="request" value="${IncorporarViewBean}" />
 
-	<form method="post" action="/WebMaven/jsp/incorporar">
+	<form method="post" action="/WebMaven/jsp/incorporarTema">
 		<p>
-			Tema: <input name="tema" type="text" value="${nuevoTema.tema}" />
+			Tema: <input name="tema" type="text" value="${nuevoTema.nombre}" />
 		</p>
 		<p>
 			Pregunta: <input name="pregunta" type="text"
-				value="${nuevoTema.nombre}" />
+				value="${nuevoTema.pregunta}" />
 		</p>
 
 		<p>
 			<input type="submit" value="Enviar" />
 		</p>
 	</form>
+
+<a href="/WebMaven/jsp/">INICIO</a>
 
 </body>
 </html>

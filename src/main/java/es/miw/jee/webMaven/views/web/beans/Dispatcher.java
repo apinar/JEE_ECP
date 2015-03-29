@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+
 import es.miw.jee.webMaven.controllers.ControllerFactory;
 import es.miw.jee.webMaven.controllers.ejbs.ControllerEjbFactory;
 
@@ -32,23 +34,23 @@ public class Dispatcher extends HttpServlet {
             throws ServletException, IOException {
 
         String action = request.getPathInfo().substring(1); 
-
+        LogManager.getLogger(Dispatcher.class).debug("accionGET: " + action);
         String view;
         switch (action) {
         case "votar":
-        	VotarViewBean votarView = new VotarViewBean();
+        	VotarViewBean votar = new VotarViewBean();
         	view = action;
             break;
         case "ver":
-        	VerViewBean verView = new VerViewBean();
+        	VerViewBean verVotaciones = new VerViewBean();
         	view = action;
         	break;
-        case "incorporar":
-        	IncorporarViewBean incorporarView = new IncorporarViewBean();
+        case "incorporarTema":
+        	IncorporarViewBean incorporarTema = new IncorporarViewBean();
         	view = action;
         	break;
         case "eliminar":
-        	EliminarViewBean eliminarView = new EliminarViewBean();
+        	EliminarViewBean eliminarTema = new EliminarViewBean();
         	view = action;	       	
         default:
             view = "home";
@@ -64,6 +66,7 @@ public class Dispatcher extends HttpServlet {
             throws ServletException, IOException {
         String action = request.getPathInfo().substring(1);
         String view = "home";
+        LogManager.getLogger(Dispatcher.class).debug("accionPOST: " + action);
         switch (action) {
         case "votar":
         	VotarViewBean votar = new VotarViewBean();
@@ -75,9 +78,15 @@ public class Dispatcher extends HttpServlet {
         	
             view = action;
             break;
-        case "incorporar":
+        case "incorporarTema":
+        	System.out.println("DISPATCHER");
         	IncorporarViewBean incorporarTema = new IncorporarViewBean();
-            view = action;
+        	String nombre = String.valueOf(request.getParameter("nombre"));
+			String pregunta = String.valueOf(request.getParameter("pregunta"));
+        	incorporarTema.setNombre(nombre);
+        	incorporarTema.setPregunta(pregunta);
+        	incorporarTema.setControllerFactory(controllerFactory);
+            view = "home";
             break;
         case "eliminar":
         	EliminarViewBean eliminarTema = new EliminarViewBean();
