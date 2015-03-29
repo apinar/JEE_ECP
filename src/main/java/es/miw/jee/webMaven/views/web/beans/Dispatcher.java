@@ -36,19 +36,19 @@ public class Dispatcher extends HttpServlet {
         String view;
         switch (action) {
         case "votar":
-        	VotarView votarView = new VotarView();
+        	VotarViewBean votarView = new VotarViewBean();
         	view = action;
             break;
         case "ver":
-        	VerView verView = new VerView();
+        	VerViewBean verView = new VerViewBean();
         	view = action;
         	break;
         case "incorporar":
-        	IncorporarView incorporarView = new IncorporarView();
+        	IncorporarViewBean incorporarView = new IncorporarViewBean();
         	view = action;
         	break;
         case "eliminar":
-        	EliminarView eliminarView = new EliminarView();
+        	EliminarViewBean eliminarView = new EliminarViewBean();
         	view = action;	       	
         default:
             view = "home";
@@ -66,21 +66,21 @@ public class Dispatcher extends HttpServlet {
         String view = "home";
         switch (action) {
         case "votar":
-        	VotarView votarView = new VotarView();
+        	VotarViewBean votarView = new VotarViewBean();
         	
             view = action;
             break;
         case "ver":
-        	VerView verView = new VerView();
+        	VerViewBean verView = new VerViewBean();
         	
             view = action;
             break;
         case "incorporar":
-        	IncorporarView incorporarView = new IncorporarView();
+        	IncorporarViewBean incorporarView = new IncorporarViewBean();
             view = action;
             break;
         case "eliminar":
-        	EliminarView eliminarView = new EliminarView();
+        	EliminarViewBean eliminarView = new EliminarViewBean();
             view = action;
             break;    
             

@@ -1,5 +1,5 @@
 package es.miw.jee.webMaven.views.web.beans;
 
-public class EliminarView {
+public class VotarViewBean extends ViewBean {
 
 }

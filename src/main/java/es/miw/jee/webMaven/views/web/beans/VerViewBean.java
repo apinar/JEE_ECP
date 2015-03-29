@@ -1,5 +1,5 @@
 package es.miw.jee.webMaven.views.web.beans;
 
-public class VerView {
+public class VerViewBean extends ViewBean {
 
 }
