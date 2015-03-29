@@ -24,7 +24,7 @@
 		</p>
 	</form>
 
-<a href="/WebMaven/jsp/">INICIO </a>
+<a href="/WebMaven/jsp/">INICIO</a>
 
 </body>
 </html>

@@ -19,7 +19,7 @@ import es.miw.jee.webMaven.controllers.ejbs.ControllerEjbFactory;
 public class Dispatcher extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private static String PATH_ROOT_VIEW = "/jsp/";
+	private static String PATH_ROOT_VIEW = "/vjsp/";
 	
 	private ControllerFactory controllerFactory;
 
@@ -38,19 +38,19 @@ public class Dispatcher extends HttpServlet {
         String view;
         switch (action) {
         case "votar":
-        	VotarViewBean votar = new VotarViewBean();
+        	VotarViewBean votarView = new VotarViewBean();
         	view = action;
             break;
         case "ver":
-        	VerViewBean verVotaciones = new VerViewBean();
+        	VerViewBean verView = new VerViewBean();
         	view = action;
         	break;
         case "incorporarTema":
-        	IncorporarViewBean incorporarTema = new IncorporarViewBean();
+        	IncorporarViewBean incorporarView = new IncorporarViewBean();
         	view = action;
         	break;
         case "eliminar":
-        	EliminarViewBean eliminarTema = new EliminarViewBean();
+        	EliminarViewBean eliminarView = new EliminarViewBean();
         	view = action;	       	
         default:
             view = "home";
@@ -74,22 +74,22 @@ public class Dispatcher extends HttpServlet {
             view = action;
             break;
         case "ver":
-        	VerViewBean verVotaciones = new VerViewBean();
+        	VerViewBean verView = new VerViewBean();
         	
             view = action;
             break;
         case "incorporarTema":
         	System.out.println("DISPATCHER");
-        	IncorporarViewBean incorporarTema = new IncorporarViewBean();
+        	IncorporarViewBean incorporarView = new IncorporarViewBean();
         	String nombre = String.valueOf(request.getParameter("nombre"));
 			String pregunta = String.valueOf(request.getParameter("pregunta"));
-        	incorporarTema.setNombre(nombre);
-        	incorporarTema.setPregunta(pregunta);
-        	incorporarTema.setControllerFactory(controllerFactory);
+        	incorporarView.setNombre(nombre);
+        	incorporarView.setPregunta(pregunta);
+        	incorporarView.setControllerFactory(controllerFactory);
             view = "home";
             break;
         case "eliminar":
-        	EliminarViewBean eliminarTema = new EliminarViewBean();
+        	EliminarViewBean eliminarView = new EliminarViewBean();
             view = action;
             break;    
             
