@@ -79,13 +79,15 @@ public class Dispatcher extends HttpServlet {
             view = action;
             break;
         case "incorporarTema":
-        	System.out.println("DISPATCHER");
         	IncorporarViewBean incorporarView = new IncorporarViewBean();
-        	String nombre = String.valueOf(request.getParameter("nombre"));
+        	String nombre = String.valueOf(request.getParameter("tema"));
 			String pregunta = String.valueOf(request.getParameter("pregunta"));
         	incorporarView.setNombre(nombre);
         	incorporarView.setPregunta(pregunta);
         	incorporarView.setControllerFactory(controllerFactory);
+        	LogManager.getLogger(Dispatcher.class).debug(nombre);
+			LogManager.getLogger(Dispatcher.class).debug(pregunta);
+            incorporarView.process();
             view = "home";
             break;
         case "eliminar":
