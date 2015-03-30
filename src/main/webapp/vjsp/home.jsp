@@ -8,5 +8,11 @@
 </head>
 <body>
 <h1>Home JSP</h1>
+<a href="/WebMaven/jsp/incorporarTema">Incorporar tema</a><br>
+<a href="/WebMaven/jsp/eliminarTema">Eliminar tema</a><br>
+<a href="/WebMaven/jsp/votar">Votar</a><br>
+<a href="/WebMaven/jsp/verVotaciones">Ver votaciones</a><br>
+
+
 </body>
 </html>

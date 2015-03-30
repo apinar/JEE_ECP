@@ -41,7 +41,7 @@ public class Dispatcher extends HttpServlet {
         	VotarViewBean votarView = new VotarViewBean();
         	view = action;
             break;
-        case "ver":
+        case "verVotaciones":
         	VerViewBean verView = new VerViewBean();
         	view = action;
         	break;
@@ -49,7 +49,7 @@ public class Dispatcher extends HttpServlet {
         	IncorporarViewBean incorporarView = new IncorporarViewBean();
         	view = action;
         	break;
-        case "eliminar":
+        case "eliminarTema":
         	EliminarViewBean eliminarView = new EliminarViewBean();
         	view = action;	       	
         default:
@@ -73,7 +73,7 @@ public class Dispatcher extends HttpServlet {
         	
             view = action;
             break;
-        case "ver":
+        case "verVotaciones":
         	VerViewBean verView = new VerViewBean();
         	
             view = action;
@@ -90,7 +90,7 @@ public class Dispatcher extends HttpServlet {
             incorporarView.process();
             view = "home";
             break;
-        case "eliminar":
+        case "eliminarTema":
         	EliminarViewBean eliminarView = new EliminarViewBean();
             view = action;
             break;    
