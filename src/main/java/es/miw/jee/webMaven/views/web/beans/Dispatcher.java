@@ -51,7 +51,8 @@ public class Dispatcher extends HttpServlet {
         	break;
         case "eliminarTema":
         	EliminarViewBean eliminarView = new EliminarViewBean();
-        	view = action;	       	
+        	view = action;
+        	break;
         default:
             view = "home";
         }
