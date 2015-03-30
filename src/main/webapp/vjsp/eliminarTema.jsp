@@ -11,12 +11,16 @@
  
  <c:set var="eliminaTema" scope="request" value="${EliminarViewBean}" />
 
-	<form method="post" action="/WebMaven/jsp/incorporarTema">
+	<form method="post" action="/WebMaven/jsp/eliminarTema">
 		<p>
 			Seleccionar Tema a borrar:
+			<p>
+			<select name="tema">
 			<c:forEach var="tema" items="${eliminaTema.temas}">
-				${tema.nombre}
+				<option value="${tema.id}" selected>${tema.nombre}</option><br>
 			</c:forEach>
+			</select>
+			</p>
 		</p>
 		
 

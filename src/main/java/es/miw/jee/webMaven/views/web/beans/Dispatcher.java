@@ -51,6 +51,10 @@ public class Dispatcher extends HttpServlet {
         	break;
         case "eliminarTema":
         	EliminarViewBean eliminarView = new EliminarViewBean();
+        	eliminarView.setControllerFactory(controllerFactory);
+        	eliminarView.update();
+        	//System.out.println("AAAAA"+eliminarView.getTemas().toString());
+        	request.setAttribute("EliminarViewBean", eliminarView);
         	view = action;
         	break;
         default:
@@ -92,7 +96,7 @@ public class Dispatcher extends HttpServlet {
             view = "home";
             break;
         case "eliminarTema":
-        	EliminarViewBean eliminarView = new EliminarViewBean();
+        	
             view = action;
             break;    
             
