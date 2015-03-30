@@ -6,7 +6,7 @@ import es.miw.jee.webMaven.models.entities.Tema;
 
 public interface EliminarTemaController {
 	
-	void eliminarTema(Tema tema);
+	void eliminarTema(Integer id);
 	boolean comprobarAutorizacion(String id);
 	List<Tema> getTemas();
 

@@ -46,7 +46,8 @@ public class EliminarViewBean extends ViewBean {
 	}
 	
 	public String process() {
-		this.getControllerFactory().getEliminarTemaController().eliminarTema(tema);
+		
+		this.getControllerFactory().getEliminarTemaController().eliminarTema(id);
 		return null;
 	}
 

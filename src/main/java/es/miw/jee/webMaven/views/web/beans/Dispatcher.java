@@ -96,8 +96,12 @@ public class Dispatcher extends HttpServlet {
             view = "home";
             break;
         case "eliminarTema":
-        	
-            view = action;
+        	Integer id = Integer.valueOf(request.getParameter("tema"));
+        	EliminarViewBean eliminarView = new EliminarViewBean();
+        	eliminarView.setControllerFactory(controllerFactory);
+        	eliminarView.setId(id);
+        	eliminarView.process();
+            view = "home";
             break;    
             
         }
