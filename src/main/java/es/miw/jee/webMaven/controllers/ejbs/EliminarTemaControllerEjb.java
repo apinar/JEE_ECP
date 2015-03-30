@@ -11,6 +11,7 @@ public class EliminarTemaControllerEjb implements EliminarTemaController {
 
 	
 	private static final String autorizacion = "666";
+		
 	
 	@Override
 	public void eliminarTema(Integer id) {
@@ -28,7 +29,6 @@ public class EliminarTemaControllerEjb implements EliminarTemaController {
 		TemaDao temaDaoJpa = new DaoJpaFactory().getTemaDao();
 		return temaDaoJpa.findAll();
 	}
-
 
 
 

@@ -46,14 +46,13 @@ public class Dispatcher extends HttpServlet {
         	view = action;
         	break;
         case "incorporarTema":
-        	IncorporarViewBean incorporarView = new IncorporarViewBean();
+        	//IncorporarViewBean incorporarView = new IncorporarViewBean();
         	view = action;
         	break;
         case "eliminarTema":
         	EliminarViewBean eliminarView = new EliminarViewBean();
         	eliminarView.setControllerFactory(controllerFactory);
         	eliminarView.update();
-        	//System.out.println("AAAAA"+eliminarView.getTemas().toString());
         	request.setAttribute("EliminarViewBean", eliminarView);
         	view = action;
         	break;
@@ -97,10 +96,13 @@ public class Dispatcher extends HttpServlet {
             break;
         case "eliminarTema":
         	Integer id = Integer.valueOf(request.getParameter("tema"));
+        	String autorizacion = String.valueOf(request.getParameter("autorizacion"));
         	EliminarViewBean eliminarView = new EliminarViewBean();
         	eliminarView.setControllerFactory(controllerFactory);
-        	eliminarView.setId(id);
-        	eliminarView.process();
+        	if (eliminarView.getControllerFactory().getEliminarTemaController().comprobarAutorizacion(autorizacion)){
+        		eliminarView.setId(id);
+            	eliminarView.process();	
+        	}       	
             view = "home";
             break;    
             

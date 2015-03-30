@@ -21,6 +21,8 @@
 			</c:forEach>
 			</select>
 			</p>
+			<br>
+			Autorización: <input name="autorizacion" type="text" />
 		</p>
 		
 
