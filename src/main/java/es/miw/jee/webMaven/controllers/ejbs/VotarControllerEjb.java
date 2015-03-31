@@ -6,6 +6,7 @@ import es.miw.jee.webMaven.controllers.VotarController;
 import es.miw.jee.webMaven.models.daos.TemaDao;
 import es.miw.jee.webMaven.models.daos.jpa.DaoJpaFactory;
 import es.miw.jee.webMaven.models.entities.Tema;
+import es.miw.jee.webMaven.models.entities.Voto;
 
 public class VotarControllerEjb implements VotarController {
 
@@ -22,9 +23,12 @@ public class VotarControllerEjb implements VotarController {
 	}
 
 	@Override
-	public void votar(Integer id) {
+	public void votar(Integer id, Voto voto) {
 		TemaDao  temaDao = new DaoJpaFactory().getTemaDao();
-		temaDao.update(elegirTema(id));
+		Tema tema = temaDao.read(id);
+		tema.añadirVoto(voto);
+		temaDao.update(tema);
+		
 	}
 
 }

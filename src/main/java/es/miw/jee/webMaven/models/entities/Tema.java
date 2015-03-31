@@ -1,5 +1,6 @@
 package es.miw.jee.webMaven.models.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -54,6 +55,13 @@ public class Tema {
 
 	public void setVotos(List<Voto> votos) {
 	    this.votos = votos;
+	}
+
+	public void añadirVoto(Voto voto) {
+		if (this.votos == null) {
+            this.votos = new ArrayList<Voto>();
+        }
+        this.votos.add(voto);		
 	}
 	
 }

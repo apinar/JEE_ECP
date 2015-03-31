@@ -38,7 +38,7 @@ public class Dispatcher extends HttpServlet {
         String view;
         switch (action) {
         case "votar":
-        	VotarViewBean votarView = new VotarViewBean();
+        	//VotarViewBean votarView = new VotarViewBean();
         	view = action;
             break;
         case "verVotaciones":
@@ -96,17 +96,13 @@ public class Dispatcher extends HttpServlet {
             break;
         case "eliminarTema":
         	String autorizacion = String.valueOf(request.getParameter("autorizacion"));
-        	//System.out.println(autorizacion);
         	EliminarViewBean eliminarView = new EliminarViewBean();
-        	eliminarView.setControllerFactory(controllerFactory);
-        	//System.out.println("AUT: "+ eliminarView.isAutorizado());        	
+        	eliminarView.setControllerFactory(controllerFactory);      	
         	if (!autorizacion.isEmpty() && autorizacion != null){
         		if (eliminarView.getControllerFactory().getEliminarTemaController().comprobarAutorizacion(autorizacion)){
         			eliminarView.setAutorizado(true);
-        			//System.out.println("AUTORIZO!!!");
         			eliminarView.update();
         			request.setAttribute("EliminarViewBean", eliminarView);
-        			//System.out.println(eliminarView.getTemas());
         			view = "eliminarTema";
         		} else{
         			view="error";
@@ -114,7 +110,6 @@ public class Dispatcher extends HttpServlet {
         			
         	} else{
     			Integer id = Integer.valueOf(request.getParameter("tema"));
-    			//System.out.println("BORRANDO!!");
             	if (!id.toString().isEmpty()){
             		eliminarView.setId(id);
                 	eliminarView.process();
