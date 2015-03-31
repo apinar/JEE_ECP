@@ -87,7 +87,6 @@ public class VotarViewBean extends ViewBean {
 	public void updateData(){
 		this.setTemas(this.getControllerFactory().getVotarController().listarTemas());
 		this.setTema(this.getControllerFactory().getVotarController().elegirTema(id));
-		//tema.nombre //tema.pregunta
 	}
 	
 	

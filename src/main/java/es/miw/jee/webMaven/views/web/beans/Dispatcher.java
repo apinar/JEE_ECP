@@ -50,7 +50,6 @@ public class Dispatcher extends HttpServlet {
         	view = action;
         	break;
         case "incorporarTema":
-        	//IncorporarViewBean incorporarView = new IncorporarViewBean();
         	view = action;
         	break;
         case "eliminarTema":
@@ -81,14 +80,11 @@ public class Dispatcher extends HttpServlet {
         	Integer idTema = Integer.valueOf(request.getParameter("tema"));
         	String puedeVotar = String.valueOf(request.getParameter("votar"));
         	votar.setControllerFactory(controllerFactory);
-        	System.out.println(puedeVotar);
         	votar.setId(idTema);
         	if (puedeVotar.equals("true")){
-        		System.out.println(idTema);
         		votar.updateData();
         		votar.setElegidoTema(true);
             	request.setAttribute("VotarViewBean", votar);
-        		System.out.println(votar.getTema());
         		view = action;
         	}else{
         		votar.setPuntuacion(Integer.valueOf(request.getParameter("puntuacion"))); 
@@ -96,12 +92,8 @@ public class Dispatcher extends HttpServlet {
         		votar.process();
             	view = "home";
         	}       	        	
-        	
-            
             break;
         case "verVotaciones":
-        	VerViewBean verView = new VerViewBean();
-        	
             view = action;
             break;
         case "incorporarTema":
@@ -137,12 +129,9 @@ public class Dispatcher extends HttpServlet {
                 	eliminarView.process();
                 	view = "home";
             	}       	
-        		
         	 }    	       	        	
-            
             break;               
         }
-
         this.getServletContext().getRequestDispatcher(PATH_ROOT_VIEW + view + ".jsp")
                 .forward(request, response);
     }
