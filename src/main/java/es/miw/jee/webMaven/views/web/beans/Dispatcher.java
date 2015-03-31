@@ -47,6 +47,9 @@ public class Dispatcher extends HttpServlet {
             break;
         case "verVotaciones":
         	VerViewBean verView = new VerViewBean();
+        	verView.setControllerFactory(controllerFactory);
+        	request.setAttribute("VerViewBean", verView);
+        	verView.process();
         	view = action;
         	break;
         case "incorporarTema":

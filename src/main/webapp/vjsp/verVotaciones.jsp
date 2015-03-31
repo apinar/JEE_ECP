@@ -8,8 +8,14 @@
 <title>Ver Votaciones</title>
 </head>
 <body>
+<c:set var="verVotaciones" scope="request" value="${VerViewBean}" />
 
-<br>
+${verVotaciones.temas} <br>
+${verVotaciones.votos}
+
+
+
+<br><br>
 <a href="/WebMaven/jsp/">INICIO</a>
 </body>
 </html>
