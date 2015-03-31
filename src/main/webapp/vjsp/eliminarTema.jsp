@@ -22,7 +22,7 @@
 			</select>
 			</p>
 			<br>
-			Autorización: <input name="autorizacion" type="text" />
+			Autorización: <input name="autorizacion" type="text" /> 
 		</p>
 		
 
