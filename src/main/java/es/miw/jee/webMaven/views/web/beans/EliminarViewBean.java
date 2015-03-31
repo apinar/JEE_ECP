@@ -10,6 +10,7 @@ public class EliminarViewBean extends ViewBean {
 	private List<Tema> temas;
 	private Tema tema;
 	private boolean autorizado = false;
+	private String clave;
 
 	
 	public Integer getId() {
@@ -60,6 +61,16 @@ public class EliminarViewBean extends ViewBean {
 
 	public void setAutorizado(boolean autorizado) {
 		this.autorizado = autorizado;
+	}
+
+
+	public String getClave() {
+		return clave;
+	}
+
+
+	public void setClave(String clave) {
+		this.clave = clave;
 	}
 
 

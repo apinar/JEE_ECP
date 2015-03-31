@@ -15,8 +15,7 @@
 			Tema: <input name="tema" type="text" value="${nuevoTema.nombre}" />
 		</p>
 		<p>
-			Pregunta: <input name="pregunta" type="text"
-				value="${nuevoTema.pregunta}" />
+			Pregunta: <input name="pregunta" type="text" value="${nuevoTema.pregunta}" />
 		</p>
 
 		<p>

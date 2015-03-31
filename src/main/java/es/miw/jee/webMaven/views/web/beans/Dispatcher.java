@@ -95,24 +95,32 @@ public class Dispatcher extends HttpServlet {
             view = "home";
             break;
         case "eliminarTema":
-        	Integer id = Integer.valueOf(request.getParameter("tema"));
         	String autorizacion = String.valueOf(request.getParameter("autorizacion"));
+        	//System.out.println(autorizacion);
         	EliminarViewBean eliminarView = new EliminarViewBean();
         	eliminarView.setControllerFactory(controllerFactory);
-        	if (!autorizacion.isEmpty()){
+        	//System.out.println("AUT: "+ eliminarView.isAutorizado());        	
+        	if (!autorizacion.isEmpty() && autorizacion != null){
         		if (eliminarView.getControllerFactory().getEliminarTemaController().comprobarAutorizacion(autorizacion)){
         			eliminarView.setAutorizado(true);
-        		}
-        			
-        	}
-        	if (!id.toString().isEmpty()){
-        		eliminarView.setId(id);
-            	eliminarView.process();	
-        	}    	       	
-        	
-            view = "home";
-            break;    
+        			//System.out.println("AUTORIZO!!!");
+        			eliminarView.update();
+        			request.setAttribute("EliminarViewBean", eliminarView);
+        			//System.out.println(eliminarView.getTemas());
+        			view = "eliminarTema";
+        		}       			        			
+        	} else{
+    			Integer id = Integer.valueOf(request.getParameter("tema"));
+    			//System.out.println("BORRANDO!!");
+            	if (!id.toString().isEmpty()){
+            		eliminarView.setId(id);
+                	eliminarView.process();
+                	view = "home";
+            	}       	
+        		
+        	 }    	       	        	
             
+            break;               
         }
 
         this.getServletContext().getRequestDispatcher(PATH_ROOT_VIEW + view + ".jsp")

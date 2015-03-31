@@ -9,27 +9,45 @@
 </head>
 <body>
  
- <c:set var="eliminaTema" scope="request" value="${EliminarViewBean}" />
+ <c:set var="autorizado" scope="request" value="${EliminarViewBean.autorizado}" />
+ 		<c:choose>
+ 				<c:when test="${autorizado == false}" >
+				<form method="post" action="/WebMaven/jsp/eliminarTema">
+		            Autorización: 
+		            
+		            <input type="text" name="autorizacion" value="${EliminarViewBean.clave}"> <br>
+		        
+		        <p>
+                    <input type="submit" value="Autorizar" />
+                </p>
+                </form>
+			</c:when>
+  
+			<c:otherwise>
+				<c:set var="eliminaTema" scope="request" value="${EliminarViewBean}" />
+				<form method="post" action="/WebMaven/jsp/eliminarTema">
+					<p>
+					Seleccionar Tema a borrar:
+					</p>
+					<p>
+					<select name="tema">
+					<c:forEach var="tema" items="${eliminaTema.temas}">
+						<option value="${tema.id}" selected>${tema.nombre}</option><br>
+					</c:forEach>
+					</select>
+					</p>
 
-	<form method="post" action="/WebMaven/jsp/eliminarTema">
-		<p>
-			Seleccionar Tema a borrar:
-			<p>
-			<select name="tema">
-			<c:forEach var="tema" items="${eliminaTema.temas}">
-				<option value="${tema.id}" selected>${tema.nombre}</option><br>
-			</c:forEach>
-			</select>
-			</p>
-			<br>
-			Autorización: <input name="autorizacion" type="text" /> 
-		</p>
-		
-
-		<p>
-			<input type="submit" value="Enviar" />
-		</p>
-	</form>
+					<input type="hidden" value="" name="autorizacion" />
+					<p>
+						<input type="submit" value="Enviar" />
+					</p>
+				</form>		
+			</c:otherwise>
+ 
+ 		</c:choose>
+ 
+ 
+ 
 
 <a href="/WebMaven/jsp/">INICIO</a>
  
