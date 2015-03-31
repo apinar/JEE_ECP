@@ -12,6 +12,7 @@ import org.apache.logging.log4j.LogManager;
 
 import es.miw.jee.webMaven.controllers.ControllerFactory;
 import es.miw.jee.webMaven.controllers.ejbs.ControllerEjbFactory;
+import es.miw.jee.webMaven.models.utils.Estudios;
 
  
 
@@ -81,20 +82,22 @@ public class Dispatcher extends HttpServlet {
         	String puedeVotar = String.valueOf(request.getParameter("votar"));
         	votar.setControllerFactory(controllerFactory);
         	System.out.println(puedeVotar);
+        	votar.setId(idTema);
         	if (puedeVotar.equals("true")){
-        		votar.setId(idTema);
         		System.out.println(idTema);
         		votar.updateData();
         		votar.setElegidoTema(true);
             	request.setAttribute("VotarViewBean", votar);
         		System.out.println(votar.getTema());
+        		view = action;
         	}else{
-        		//pasar los argumentos
+        		votar.setPuntuacion(Integer.valueOf(request.getParameter("puntuacion"))); 
+            	votar.setNivelestudios(Estudios.valueOf(request.getParameter("estudio")));       
         		votar.process();
             	view = "home";
         	}       	        	
         	
-            view = action;
+            
             break;
         case "verVotaciones":
         	VerViewBean verView = new VerViewBean();

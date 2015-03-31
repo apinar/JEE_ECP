@@ -17,6 +17,8 @@ public class VotarViewBean extends ViewBean {
 	private String ip;
 	private List<Tema> temas;
 	private boolean elegidoTema = false;
+	private  Estudios[] estudios = Estudios.values();
+	private  Integer[] escala = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 	
 	
 	public Integer getId() {
@@ -37,8 +39,7 @@ public class VotarViewBean extends ViewBean {
 	public void setPuntuacion(Integer puntuacion) {
 		this.puntuacion = puntuacion;
 	}
-	
-	
+		
 	public Estudios getNivelestudios() {
 		return nivelestudios;
 	}
@@ -67,6 +68,18 @@ public class VotarViewBean extends ViewBean {
 	}
 	
 	
+	public Estudios[] getEstudios() {
+		return estudios;
+	}
+	public void setEstudios(Estudios[] estudios) {
+		this.estudios = estudios;
+	}
+	public Integer[] getEscala() {
+		return escala;
+	}
+	public void setEscala(Integer[] escala) {
+		this.escala = escala;
+	}
 	public void update(){
 		this.setTemas(this.getControllerFactory().getVotarController().listarTemas());
 	}

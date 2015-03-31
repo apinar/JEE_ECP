@@ -32,16 +32,34 @@
 				</form>
 			</c:when>
 			<c:otherwise>
+			
+			<form method="post" action="/WebMaven/jsp/votar">
 			Tema elegido: <b>${vota.tema.nombre}</b> 
 			<br>
 			
 			Pregunta: <b>${vota.tema.pregunta}</b> 
 			
 			
+			
+			<br><br>
+			Puntuación:
+			<select name="puntuacion">
+			<c:forEach var="puntuacion" items="${vota.escala}">
+					<option value="${puntuacion}" selected>${puntuacion}</option><br>
+			</c:forEach>
+			</select>
 			<br>
+			Nivel de Estudios:
+			<select name="estudio">
+			<c:forEach var="estudio" items="${vota.estudios}">
+						<option value="${estudio}" selected>${estudio}</option><br>
+					</c:forEach>
+			</select>
 			
-			
-			
+			<input type="hidden" value="false" name="votar" />
+			<input type="hidden" value="${vota.tema.id}" name="tema" />
+			<input type="submit" value="Enviar" />
+			</form>
 			</c:otherwise>
 			</c:choose>		
 
