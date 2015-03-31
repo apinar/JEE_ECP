@@ -108,7 +108,10 @@ public class Dispatcher extends HttpServlet {
         			request.setAttribute("EliminarViewBean", eliminarView);
         			//System.out.println(eliminarView.getTemas());
         			view = "eliminarTema";
-        		}       			        			
+        		} else{
+        			view="error";
+        		}
+        			
         	} else{
     			Integer id = Integer.valueOf(request.getParameter("tema"));
     			//System.out.println("BORRANDO!!");
