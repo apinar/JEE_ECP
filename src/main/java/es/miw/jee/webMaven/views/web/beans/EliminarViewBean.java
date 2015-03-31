@@ -9,6 +9,7 @@ public class EliminarViewBean extends ViewBean {
 	private Integer id;
 	private List<Tema> temas;
 	private Tema tema;
+	private boolean autorizado = false;
 
 	
 	public Integer getId() {
@@ -50,5 +51,18 @@ public class EliminarViewBean extends ViewBean {
 		this.getControllerFactory().getEliminarTemaController().eliminarTema(id);
 		return null;
 	}
+
+
+	public boolean isAutorizado() {
+		return autorizado;
+	}
+
+
+	public void setAutorizado(boolean autorizado) {
+		this.autorizado = autorizado;
+	}
+
+
+	
 
 }

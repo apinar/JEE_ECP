@@ -99,10 +99,17 @@ public class Dispatcher extends HttpServlet {
         	String autorizacion = String.valueOf(request.getParameter("autorizacion"));
         	EliminarViewBean eliminarView = new EliminarViewBean();
         	eliminarView.setControllerFactory(controllerFactory);
-        	if (eliminarView.getControllerFactory().getEliminarTemaController().comprobarAutorizacion(autorizacion)){
+        	if (!autorizacion.isEmpty()){
+        		if (eliminarView.getControllerFactory().getEliminarTemaController().comprobarAutorizacion(autorizacion)){
+        			eliminarView.setAutorizado(true);
+        		}
+        			
+        	}
+        	if (!id.toString().isEmpty()){
         		eliminarView.setId(id);
             	eliminarView.process();	
-        	}       	
+        	}    	       	
+        	
             view = "home";
             break;    
             
