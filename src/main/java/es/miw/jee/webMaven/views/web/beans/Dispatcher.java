@@ -38,7 +38,10 @@ public class Dispatcher extends HttpServlet {
         String view;
         switch (action) {
         case "votar":
-        	//VotarViewBean votarView = new VotarViewBean();
+        	VotarViewBean votarView = new VotarViewBean();
+        	votarView.setControllerFactory(controllerFactory);
+        	votarView.update();
+        	request.setAttribute("VotarViewBean", votarView);
         	view = action;
             break;
         case "verVotaciones":
@@ -74,6 +77,22 @@ public class Dispatcher extends HttpServlet {
         switch (action) {
         case "votar":
         	VotarViewBean votar = new VotarViewBean();
+        	Integer idTema = Integer.valueOf(request.getParameter("tema"));
+        	String puedeVotar = String.valueOf(request.getParameter("votar"));
+        	votar.setControllerFactory(controllerFactory);
+        	System.out.println(puedeVotar);
+        	if (puedeVotar.equals("true")){
+        		votar.setId(idTema);
+        		System.out.println(idTema);
+        		votar.updateData();
+        		votar.setElegidoTema(true);
+            	request.setAttribute("VotarViewBean", votar);
+        		System.out.println(votar.getTema());
+        	}else{
+        		//pasar los argumentos
+        		votar.process();
+            	view = "home";
+        	}       	        	
         	
             view = action;
             break;

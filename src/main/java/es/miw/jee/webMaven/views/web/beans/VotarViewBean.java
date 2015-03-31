@@ -2,6 +2,7 @@ package es.miw.jee.webMaven.views.web.beans;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.List;
 
 import es.miw.jee.webMaven.models.entities.Tema;
 import es.miw.jee.webMaven.models.entities.Voto;
@@ -14,6 +15,8 @@ public class VotarViewBean extends ViewBean {
 	private Integer puntuacion;
 	private Estudios nivelestudios;
 	private String ip;
+	private List<Tema> temas;
+	private boolean elegidoTema = false;
 	
 	
 	public Integer getId() {
@@ -49,6 +52,31 @@ public class VotarViewBean extends ViewBean {
 		this.ip = ip;
 	}
 	
+	public List<Tema> getTemas() {
+		return temas;
+	}
+	public void setTemas(List<Tema> temas) {
+		this.temas = temas;
+	}
+	
+	public boolean isElegidoTema() {
+		return elegidoTema;
+	}
+	public void setElegidoTema(boolean elegidoTema) {
+		this.elegidoTema = elegidoTema;
+	}
+	
+	
+	public void update(){
+		this.setTemas(this.getControllerFactory().getVotarController().listarTemas());
+	}
+	
+	public void updateData(){
+		this.setTemas(this.getControllerFactory().getVotarController().listarTemas());
+		this.setTema(this.getControllerFactory().getVotarController().elegirTema(id));
+		//tema.nombre //tema.pregunta
+	}
+	
 	
 	public String process() {
 		try {
@@ -63,6 +91,8 @@ public class VotarViewBean extends ViewBean {
 		
 		return null;
 	}
+	
+	
 	
 	
 	

@@ -11,4 +11,5 @@ public interface VotarController {
 	Tema elegirTema(Integer id);
 	void votar(Integer id, Voto voto);
 	
+	
 }
