@@ -4,6 +4,6 @@ public interface TemaUris {
 	
 	String PATH_TEMAS = "/temas";
 	
-	String PATH_INCORPORADO_TEMA = "/IncorporadoTema";
+	String PATH_INCORPORADO_TEMA = "/incorporadoTema";
 	
 }

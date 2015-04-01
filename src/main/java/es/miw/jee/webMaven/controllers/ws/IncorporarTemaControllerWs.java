@@ -6,6 +6,7 @@ import es.miw.jee.webMaven.ws.TemaUris;
 
 public class IncorporarTemaControllerWs implements IncorporarTemaController {
 
+	
 	@Override
 	public void incorporarTema(Tema tema) {
 		ControllerWs.buildWebServiceManager(TemaUris.PATH_TEMAS).create(tema);
