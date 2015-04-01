@@ -14,8 +14,9 @@ public class VerVotacionesControllerEjb implements VerVotacionesController {
 
 	private List<Tema> temas;
 	private List<Integer> votos;
-	private List<Estudios> estudios;
-	
+	//private List<Estudios> estudios;
+	private List<List<Double>> medias;
+	private Estudios[] estudios = Estudios.values();
 
 	
 	public List<Tema> getTemas() {
@@ -35,11 +36,11 @@ public class VerVotacionesControllerEjb implements VerVotacionesController {
 	}
 
 
-	public List<Estudios> getEstudios() {
+	public Estudios[] getEstudios() {
 		return estudios;
 	}
 
-	public void setEstudios(List<Estudios> estudios) {
+	public void setEstudios(Estudios[] estudios) {
 		this.estudios = estudios;
 	}
 	
@@ -75,9 +76,26 @@ public class VerVotacionesControllerEjb implements VerVotacionesController {
 		for (Integer valoracion : votosPorEstudio){
 			count+=valoracion;
 		}
+		System.out.println("MEDIA: "+count/votosPorEstudio.size());
 		return count/votosPorEstudio.size();
 	}
 
-	
+	@Override
+	public List<Double> listaMediasTema (Tema tema){
+		List<Double> mediasTema = new ArrayList<Double>();
+		for (Estudios estudio : this.estudios){
+			mediasTema.add(mediaVotosPorEstudioYTema(estudio,tema));
+		}
+		return mediasTema;
+	}
+
+	@Override
+	public List<List<Double>> listaMedias (){
+		medias = new ArrayList<List <Double>>();
+		for (Tema tema : temas){
+			medias.add(listaMediasTema(tema));
+		}
+		return medias;
+	}
 		
 }

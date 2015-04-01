@@ -11,7 +11,10 @@
 <c:set var="verVotaciones" scope="request" value="${VerViewBean}" />
 
 ${verVotaciones.temas} <br>
-${verVotaciones.votos}
+${verVotaciones.votos} <br>
+<br>
+Por cada tema, un array de la media por estudios:<br>
+${verVotaciones.medias}
 
  
 

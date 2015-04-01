@@ -10,4 +10,6 @@ public interface VerVotacionesController {
 	List<Tema> listarTemas();
 	List<Integer> verVotos();
 	Double mediaVotosPorEstudioYTema(Estudios estudio, Tema tema);
+	List<Double> listaMediasTema (Tema tema);
+	List<List<Double>> listaMedias ();
 }

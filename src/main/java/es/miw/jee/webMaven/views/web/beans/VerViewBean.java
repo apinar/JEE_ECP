@@ -8,6 +8,7 @@ public class VerViewBean extends ViewBean {
 
 	private List<Tema> temas;
 	private List<Integer> votos;
+	private List<List<Double>> medias;
 	
 
 	public List<Tema> getTemas() {
@@ -30,10 +31,20 @@ public class VerViewBean extends ViewBean {
 	}
 
 
+	public List<List<Double>> getMedias() {
+		return medias;
+	}
+
+
+	public void setMedias(List<List<Double>> medias) {
+		this.medias = medias;
+	}
+
+
 	public void process() {
 		this.setTemas(this.getControllerFactory().getVerVotacionesController().listarTemas());
 		this.setVotos(this.getControllerFactory().getVerVotacionesController().verVotos());
-		
+		this.setMedias(this.getControllerFactory().getVerVotacionesController().listaMedias());
 	}
 
 }
