@@ -8,6 +8,9 @@
 <title>Incorporar Tema</title>
 </head>
 <body>
+<h2>
+    Incorporar Tema:
+</h2>
 <c:set var="nuevoTema" scope="request" value="${IncorporarViewBean}" />
 
 	<form method="post" action="/WebMaven/jsp/incorporarTema">

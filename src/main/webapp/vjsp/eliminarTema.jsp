@@ -8,7 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+ <h2>
  
+    Eliminar Tema:
+</h2>
  <c:set var="autorizado" scope="request" value="${EliminarViewBean.autorizado}" />
  		<c:choose>
  				<c:when test="${autorizado == false}" >

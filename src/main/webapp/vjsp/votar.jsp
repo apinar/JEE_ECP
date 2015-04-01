@@ -8,15 +8,18 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h2>
+    Votar Tema:
+</h2>
 	<c:set var="elegidoTema" scope="request" value="${VotarViewBean.elegidoTema}" />
 	<c:set var="vota" scope="request" value="${VotarViewBean}" />
  		<c:choose>
  			<c:when test="${elegidoTema == false}" >
 
 				<form method="post" action="/WebMaven/jsp/votar">
-					<p>
+					<h4>
 					Seleccionar Tema para votar:
-					</p>
+					</h4>
 					<p>
 					<select name="tema">
 					<c:forEach var="tema" items="${vota.temas}">
@@ -58,7 +61,9 @@
 			
 			<input type="hidden" value="false" name="votar" />
 			<input type="hidden" value="${vota.tema.id}" name="tema" />
+			<p>
 			<input type="submit" value="Enviar" />
+			</p>
 			</form>
 			</c:otherwise>
 			</c:choose>		
