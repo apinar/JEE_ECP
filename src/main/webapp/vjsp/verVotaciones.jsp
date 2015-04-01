@@ -13,7 +13,7 @@
 ${verVotaciones.temas} <br>
 ${verVotaciones.votos}
 
-
+ 
 
 <br><br>
 <a href="/WebMaven/jsp/">INICIO</a>
