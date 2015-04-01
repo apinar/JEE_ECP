@@ -67,19 +67,22 @@ public class VerVotacionesControllerEjb implements VerVotacionesController {
 		List<Voto> votos = tema.getVotos();
 		List<Integer> votosPorEstudio = new ArrayList<Integer>();
 		for (Voto voto : votos){
-			if (voto.getNivelEstudios().equals(estudio.toString())){
+			if (voto.getNivelEstudios().equals(estudio)){
 				votosPorEstudio.add(voto.getValoracion());
 			}
-		
-		}	
+		}
 		Double count=0.0; 
 		for (Integer valoracion : votosPorEstudio){
 			count+=valoracion;
 		}
-		System.out.println("MEDIA: "+count/votosPorEstudio.size());
-		return count/votosPorEstudio.size();
+		count=count/votosPorEstudio.size();
+		if (count.isNaN())
+			return -1.0;
+		else
+			return count;
 	}
 
+	
 	@Override
 	public List<Double> listaMediasTema (Tema tema){
 		List<Double> mediasTema = new ArrayList<Double>();
