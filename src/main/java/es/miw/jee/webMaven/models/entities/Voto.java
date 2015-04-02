@@ -3,9 +3,11 @@ package es.miw.jee.webMaven.models.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import es.miw.jee.webMaven.models.utils.Estudios;
 
+@XmlRootElement
 @Entity
 public class Voto {
 	

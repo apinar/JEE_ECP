@@ -4,25 +4,28 @@ import java.util.List;
 
 import es.miw.jee.webMaven.controllers.EliminarTemaController;
 import es.miw.jee.webMaven.models.entities.Tema;
+import es.miw.jee.webMaven.ws.TemaUris;
 
 public class EliminarTemaControllerWs implements EliminarTemaController {
 
 	@Override
 	public void eliminarTema(Integer id) {
-		// TODO Auto-generated method stub
-
+		ControllerWs.buildWebServiceManager(TemaUris.PATH_TEMAS, id.toString()).delete();
 	}
 
 	@Override
 	public boolean comprobarAutorizacion(String id) {
-		// TODO Auto-generated method stub
-		return false;
+		WsManager wsManager = ControllerWs.buildWebServiceManager(TemaUris.PATH_TEMAS,TemaUris.PATH_AUTORIZAR);
+		wsManager.addParams("autorizacion", id);
+		return wsManager.entityBoolean();
 	}
 
 	@Override
 	public List<Tema> getTemas() {
-		// TODO Auto-generated method stub
+		// Unimplemented method
 		return null;
 	}
+
+
 
 }
