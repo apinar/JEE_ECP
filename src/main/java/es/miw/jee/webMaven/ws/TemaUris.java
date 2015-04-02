@@ -8,5 +8,5 @@ public interface TemaUris {
 	String PATH_AUTORIZAR = "/autorizar";
 	String PATH_NUMERO_VOTOS = "/numVotos";
 	String PATH_MEDIA_VOTOS = "/mediaVotos";
-	
+	 
 }
