@@ -41,7 +41,6 @@ public class TemaResource {
 	public Response create(Tema tema) {
 	DaoFactory.setFactory(new DaoJpaFactory());
 	DaoFactory.getFactory().getTemaDao().create(tema);
-	System.out.println("AAA"+tema.getId());
 	Response result = Response.created(URI.create(TemaUris.PATH_TEMAS + "/" + tema.getId())).entity(String.valueOf(tema.getId())).build();
 	return result;
 	}
@@ -77,7 +76,7 @@ public class TemaResource {
 	DaoFactory.setFactory(new DaoJpaFactory());
 
 	if (!autorizacion.equals(codigo_autorizacion)) {
-	return Response.ok("El usuario no est· autorizado").build();
+	return Response.ok("El usuario no est√° autorizado").build();
 	}
 
 	TemaDao temaDao = DaoFactory.getFactory().getTemaDao();
